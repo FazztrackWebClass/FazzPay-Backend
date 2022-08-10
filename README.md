@@ -20,7 +20,7 @@
 
 ## How It Works ?
 
-1. Download Postman Collection [[here](https://drive.google.com/file/d/1NtuQ54laE0NEfXGzNSnziLFf7SW9z1B9/view?usp=sharing)]
+1. Download Postman Collection [[here](https://drive.google.com/file/d/1tTixEuPCmnHMd2sm_8YSEqyQj9XkE8uu/view?usp=sharing)]
 2. Open Your Postman App
 3. Import Postman Collection
 4. Create Environtments in Postman & Set :

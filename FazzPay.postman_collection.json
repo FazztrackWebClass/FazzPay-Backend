@@ -1,0 +1,684 @@
+{
+	"info": {
+		"_postman_id": "0fa5f672-ee89-4433-94b2-38592a9fc066",
+		"name": "FazzPay",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20144301"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Bagus",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Tri Harjanto",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "bagustri15@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fazzpay}}/auth/register",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "user1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fazzpay}}/auth/login",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{fazzpay}}/auth/logout",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "user1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "linkDirect",
+									"value": "http://localhost:3000/reset-password",
+									"description": "link dari page ubah password frontend  yang dimana nanti dari email yg dikirim ketika di klik akan ke page tsb",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fazzpay}}/auth/forgot-password",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"auth",
+								"forgot-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset Password",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "keysChangePassword",
+									"value": "811861",
+									"description": "diambil dari url",
+									"type": "text"
+								},
+								{
+									"key": "newPassword",
+									"value": "1234",
+									"type": "text"
+								},
+								{
+									"key": "confirmPassword",
+									"value": "1234",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fazzpay}}/auth/reset-password",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"auth",
+								"reset-password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fazzpay}}/auth/verify/968357",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"auth",
+								"verify",
+								"968357"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get Data User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fazzpay}}/user?page=1&limit=50&search=&sort=firstName ASC",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "50"
+								},
+								{
+									"key": "search",
+									"value": "",
+									"description": "bisa search berdasarkan firstName | lastName | noTelp"
+								},
+								{
+									"key": "sort",
+									"value": "firstName ASC",
+									"description": "bisa sort berdasarkan firstName ASC/DESC | noTelp ASC/DESC"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Data User By Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fazzpay}}/user/profile/e8e58876-8c48-44c4-92da-5d19f87bc074",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								"e8e58876-8c48-44c4-92da-5d19f87bc074"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check Pin User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fazzpay}}/user/pin?pin=123456",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"user",
+								"pin"
+							],
+							"query": [
+								{
+									"key": "pin",
+									"value": "123456"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Profile User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "firstName",
+									"value": "Bagus",
+									"type": "text"
+								},
+								{
+									"key": "lastName",
+									"value": "Harjanto",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fazzpay}}/user/profile/e8e58876-8c48-44c4-92da-5d19f87bc074",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								"e8e58876-8c48-44c4-92da-5d19f87bc074"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update No Telp User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "noTelp",
+									"value": "085155070887",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fazzpay}}/user/profile/460dbd41-5918-4f41-ba23-6bdd082bd95a",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								"460dbd41-5918-4f41-ba23-6bdd082bd95a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Image User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "towWHOzMp/LogoFazztrack.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fazzpay}}/user/image/fce5d0fa-4ba0-468c-98fa-d757bef2e89b",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"user",
+								"image",
+								"fce5d0fa-4ba0-468c-98fa-d757bef2e89b"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pin User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "pin",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fazzpay}}/user/pin/e8e58876-8c48-44c4-92da-5d19f87bc074",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"user",
+								"pin",
+								"e8e58876-8c48-44c4-92da-5d19f87bc074"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Password User",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "oldPassword",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "newPassword",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "confirmPassword",
+									"value": "123",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fazzpay}}/user/password/e8e58876-8c48-44c4-92da-5d19f87bc074",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"user",
+								"password",
+								"e8e58876-8c48-44c4-92da-5d19f87bc074"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Image User",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{fazzpay}}/user/image/e8e58876-8c48-44c4-92da-5d19f87bc074",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"user",
+								"image",
+								"e8e58876-8c48-44c4-92da-5d19f87bc074"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Top Up",
+			"item": [
+				{
+					"name": "Topup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "amount",
+									"value": "50000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fazzpay}}/transaction/top-up",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"transaction",
+								"top-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Midtrans Notification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"transaction_time\": \"2022-05-20 17:50:34\",\n  \"transaction_status\": \"settlement\",\n  \"transaction_id\": \"b3fd1bc3-e6d1-44c7-928b-b86da804a24c\",\n  \"status_message\": \"midtrans payment notification\",\n  \"status_code\": \"200\",\n  \"signature_key\": \"908d746673a1130ba220ca042eafc6bc3714e6a0b8b0c3dab039d0b71d2d841bd6a92641b04dd5fbe5770cf717f947fd1b0f730bdd22c371902173e4523c52cd\",\n  \"settlement_time\": \"2022-05-20 17:50:45\",\n  \"payment_type\": \"bca_klikpay\",\n  \"order_id\": \"a7d4596a-56fb-434c-b239-0d7c853c39e9\",\n  \"merchant_id\": \"G042642950\",\n  \"gross_amount\": \"5000.00\",\n  \"fraud_status\": \"accept\",\n  \"currency\": \"IDR\",\n  \"approval_code\": \"112233\"\n}"
+						},
+						"url": {
+							"raw": "{{fazzpay}}/transaction/midtrans-notification",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"transaction",
+								"midtrans-notification"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Transfer",
+			"item": [
+				{
+					"name": "Transfer Balance",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "receiverId",
+									"value": "fce5d0fa-4ba0-468c-98fa-d757bef2e89b",
+									"type": "text"
+								},
+								{
+									"key": "amount",
+									"value": "5000",
+									"type": "text"
+								},
+								{
+									"key": "notes",
+									"value": "Pembayaran Pajak",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{fazzpay}}/transaction/transfer",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"transaction",
+								"transfer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Get Data Dashboard by User Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fazzpay}}/dashboard/e8e58876-8c48-44c4-92da-5d19f87bc074",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"dashboard",
+								"e8e58876-8c48-44c4-92da-5d19f87bc074"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "History",
+			"item": [
+				{
+					"name": "History Transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fazzpay}}/transaction/history?page=1&limit=2&filter=MONTH",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"transaction",
+								"history"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								},
+								{
+									"key": "filter",
+									"value": "MONTH",
+									"description": "WEEK | MONTH | YEAR"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Export",
+			"item": [
+				{
+					"name": "Export Transaction",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{fazzpay}}/export/transaction/e0d56c6f-1da7-4eca-b5a1-fb77637134bf",
+							"host": [
+								"{{fazzpay}}"
+							],
+							"path": [
+								"export",
+								"transaction",
+								"e0d56c6f-1da7-4eca-b5a1-fb77637134bf"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImZjZTVkMGZhLTRiYTAtNDY4Yy05OGZhLWQ3NTdiZWYyZTg5YiIsImZpcnN0TmFtZSI6IlVzZXIiLCJsYXN0TmFtZSI6IjEiLCJub1RlbHAiOiIwMjEzNDU2Nzg5IiwiaW1hZ2UiOm51bGwsImJhbGFuY2UiOjEwMDUwMDAsImVtYWlsIjoidXNlcjFAZ21haWwuY29tIiwicGluIjoiJDJiJDEwJFRmdVpVUjFsbXBhZGNVaUxiN2JXT09Hd2xrdDZORTZsc2pMZzhVdjhZODZLVjFvMHQzTTBtIiwic3RhdHVzIjoxLCJjcmVhdGVkQXQiOiIyMDIyLTA1LTIwVDA5OjUwOjEyLjAwMFoiLCJ1cGRhdGVkQXQiOiIyMDIyLTA1LTIwVDEwOjU2OjI3LjAwMFoiLCJpYXQiOjE2NjAxMDYyNDgsImV4cCI6MTY2MDE5MjY0OH0.9lIaVkkl_LKxPNlnJ_NiuxJh-bn2l9OJmrky9YeFmyE",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
